@@ -2,10 +2,10 @@ pipeline {
     /*agent { label 'linux'}*/
     agent any
    
-    /*options{
+    options{
         buildDiscarder(logRotator(numToKeepStr: '$'))
-         echo 'Options worked'
-    }*/
+         
+    }
     environment {
         
         DOCKERHUB_CREDENTIALS = credentials('jenkins_first_image')
