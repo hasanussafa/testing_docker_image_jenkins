@@ -4,7 +4,7 @@ pipeline {
    
     options{
         buildDiscarder(logRotator(numToKeepStr: '$'))
-        echo "Options function worked"
+         echo "Options worked"
     }
     environment {
         echo 'Hello World for testing'
