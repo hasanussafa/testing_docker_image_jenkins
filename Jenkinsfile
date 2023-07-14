@@ -1,29 +1,21 @@
 pipeline {
     /*agent { label 'linux'}*/
     agent any
-    
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World for testing'
-            }
-        }
-    }
-
+   
     options{
         buildDiscarder(logRotator(numToKeepStr: '$'))
         echo "Options function worked"
     }
     environment {
-        echo 'Hello World'
+        echo 'Hello World for testing'
         DOCKERHUB_CREDENTIALS = credentials('jenkins_first_image')
-        echo 'Hello environment'
+        echo 'environment working'
     }
     stages {
         satge('Build') {
             steps {
                 sh 'docker build -t hasanussafa/jenkins_first_image:latest .'
-                echo 'Hello Build'
+                echo 'Build working'
             }
         }
         satge('Login') {
