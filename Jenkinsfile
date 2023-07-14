@@ -13,7 +13,7 @@ pipeline {
     stages {
         satge('Build') {
             steps {
-                sh 'docker build -t hasanussafa/jenkins_first_image:tagname:latest .'
+                sh 'docker build -t hasanussafa/jenkins_first_image:latest .'
                 echo "Build function worked"
             }
         }
@@ -23,9 +23,10 @@ pipeline {
                 echo "Login worked"
             }
         }
+       
         satge('Push') {
             steps {
-                sh 'docker push hasanussafa/jenkins_first_image:tagname:latest'
+                sh 'docker push hasanussafa/jenkins_first_image:latest'
                 echo "Push worked"
             }
         }
