@@ -1,10 +1,18 @@
 pipeline {
     /*agent { label 'linux'}*/
     agent any
+    
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World for testing'
+            }
+        }
+    }
 
     options{
         buildDiscarder(logRotator(numToKeepStr: '$'))
-        echo 'Options function worked'
+        echo "Options function worked"
     }
     environment {
         echo 'Hello World'
