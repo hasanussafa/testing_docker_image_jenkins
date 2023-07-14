@@ -1,7 +1,7 @@
 pipeline {
     /*agent { label 'linux'}*/
     agent any
-    
+
     stages {
         stage('Hello') {
             steps {
@@ -22,7 +22,7 @@ pipeline {
     stages {
         satge('Build') {
             steps {
-                sh 'docker build -t hasanussafa/dp-alpine:latest .'
+                sh 'docker build -t hasanussafa/dp-alpine:3.18.2 .'
                 echo 'Hello Build'
             }
         }
@@ -35,7 +35,7 @@ pipeline {
        
         satge('Push') {
             steps {
-                sh 'docker push hasanussafa/dp-alpine:latest'
+                sh 'docker push hasanussafa/dp-alpine:3.18.2'
                 echo 'Hello Push'
             }
         }
