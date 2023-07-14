@@ -14,7 +14,7 @@ pipeline {
     stages {
         satge('Build') {
             steps {
-                sh 'docker build -t hasanussafa/jenkins_first_image:latest .'
+                sh 'docker build -t hasanussafa/dp-alpine:latest .'
                 echo 'Hello Build'
             }
         }
@@ -27,7 +27,7 @@ pipeline {
        
         satge('Push') {
             steps {
-                sh 'docker push hasanussafa/jenkins_first_image:latest'
+                sh 'docker push hasanussafa/dp-alpine:latest'
                 echo 'Hello Push'
             }
         }
