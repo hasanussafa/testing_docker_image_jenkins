@@ -2,39 +2,40 @@ pipeline {
     /*agent { label 'linux'}*/
     agent any
 
-    options{
+    /*options{
         buildDiscarder(logRotator(numToKeepStr: '$'))
         echo "Options function worked"
-    }
+    }*/
     environment {
+        echo 'Hello World'
         DOCKERHUB_CREDENTIALS = credentials('jenkins_first_image')
-        echo "environment function worked"
+        echo 'Hello environment'
     }
     stages {
         satge('Build') {
             steps {
                 sh 'docker build -t hasanussafa/jenkins_first_image:latest .'
-                echo "Build function worked"
+                echo 'Hello Build'
             }
         }
         satge('Login') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                echo "Login worked"
+                echo 'Hello Login'
             }
         }
        
         satge('Push') {
             steps {
                 sh 'docker push hasanussafa/jenkins_first_image:latest'
-                echo "Push worked"
+                echo 'Hello Push'
             }
         }
     }
     post {
         always {
             sh 'docker logout'
-            echo "Logout worked"
+            echo 'Hello Logout'
         }
     }
 }
