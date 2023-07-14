@@ -12,20 +12,20 @@ pipeline {
        
     }
     stages {
-        satge('Build') {
+        stage('Build') {
             steps {
                 sh 'docker build -t hasanussafa/jenkins_first_image:$BUILD_NUMBER .'
                 
             }
         }
-        satge('Login') {
+        stage('Login') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
               
             }
         }
        
-        satge('Push') {
+        stage('Push') {
             steps {
                 sh 'docker push hasanussafa/jenkins_first_image:$BUILD_NUMBER'
                 
